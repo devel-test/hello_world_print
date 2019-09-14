@@ -1,0 +1,25 @@
+language: python
+
+addons:
+    postgresql
+
+services:
+    - postgresql
+
+before_script:
+    - psql --version
+    - psql -c "create database testdb;" -U postgres
+    - psql -c "create database hello_world_db;" -U postgres
+    - psql -c "create table words(id INT, text VARCHAR);" -U postgres
+    - psql -c "insert into words values(1, 'world');" -U postgres
+
+script:
+    - python -m pytest -v
+
+deploy:
+    provider: heroku
+    api_key: a60ba061-bb6b-4d9b-b2ba-1fcaed69107f
+    app: hello-world-print
+    on:
+        repo: devel-test/hello_world_print
+
