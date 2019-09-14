@@ -17,4 +17,4 @@ def test_forbidden_second():
 
 def test_phrase_len():
     phrase = hello_world_print.get_phrase()
-    assert len(phrase) == 11
+    assert len(phrase) >= 11
