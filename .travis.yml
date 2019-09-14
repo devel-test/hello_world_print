@@ -8,10 +8,9 @@ services:
 
 before_script:
     - psql --version
-    - psql -c "create database testdb;" -U postgres
     - psql -c "create database hello_world_db;" -U postgres
-    - psql -c "create table words(id INT, text VARCHAR);" -U postgres
-    - psql -c "insert into words values(1, 'world');" -U postgres
+    - psql -d hello_world_db -c "create table words(id INT, text VARCHAR);" -U postgres
+    - psql -d hello_world_db -c "insert into words values(1, 'world');" -U postgres
 
 script:
     - python -m pytest -v
