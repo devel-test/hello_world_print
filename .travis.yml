@@ -17,7 +17,7 @@ script:
 
 deploy:
     provider: heroku
-    api_key: a60ba061-bb6b-4d9b-b2ba-1fcaed69107f
+    api_key: b4f5121d-c2d8-4c4d-b9ad-67fd70853136
     app: hello-world-print
     on:
         repo: devel-test/hello_world_print
