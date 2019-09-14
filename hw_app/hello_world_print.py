@@ -6,20 +6,20 @@ def get_db_word():
     try:
         conn = psycopg2.connect(dbname='helloworlddb8', user='postgres', host='localhost')
     except Exception:
-        return 'ERROR'
+        return 'ERROR (con)'
 
     try:
         cursor = conn.cursor()
     except Exception:
         conn.close()
-        return 'ERROR'
+        return 'ERROR (cursor)'
 
     try:
         cursor.execute('SELECT * FROM words limit 1')
     except Exception:
         cursor.close()
         conn.close()
-        return 'ERROR'
+        return 'ERROR (select)'
 
     record = cursor.fetchone()
     cursor.close()
@@ -28,7 +28,7 @@ def get_db_word():
     if isinstance(record, typing.Tuple) and len(record) == 2:
         return record[1]
     else:
-        return 'ERROR'
+        return 'ERROR (row type)'
 
 
 def get_just_word():
