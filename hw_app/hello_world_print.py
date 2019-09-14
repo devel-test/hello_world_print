@@ -4,7 +4,7 @@ import psycopg2
 
 def get_db_word():
     try:
-        conn = psycopg2.connect(dbname='hello_world_db', user='postgres', host='localhost')
+        conn = psycopg2.connect(dbname='helloworlddb8', user='postgres', host='localhost')
     except Exception:
         return 'ERROR'
 
