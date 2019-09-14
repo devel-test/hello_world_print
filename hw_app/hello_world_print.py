@@ -1,10 +1,13 @@
 import typing
+import os
 import psycopg2
 
 
 def get_db_word():
     try:
-        conn = psycopg2.connect(dbname='helloworlddb8', user='postgres', host='localhost')
+        DATABASE_URL = os.environ['DATABASE_URL']
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        #conn = psycopg2.connect(dbname='helloworlddb8', user='postgres', host='localhost')
     except Exception:
         return 'ERROR (con)'
 
