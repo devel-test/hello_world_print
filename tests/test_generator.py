@@ -10,7 +10,7 @@ def test_forbidden_first():
 
 
 def test_forbidden_second():
-    forbidden_second = ('city', 'town', 'earth', 'ERROR')
+    forbidden_second = ('city', 'town', 'earth')
     second_word = hello_world_print.get_db_word()
     assert second_word not in forbidden_second
 
