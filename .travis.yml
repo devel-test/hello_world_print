@@ -6,12 +6,6 @@ addons:
 services:
     - postgresql
 
-before_script:
-    - psql --version
-    - psql -c "create database helloworlddb8;" -U postgres
-    - psql -d helloworlddb8 -c "create table words(id INT, text VARCHAR);" -U postgres
-    - psql -d helloworlddb8 -c "insert into words values(1, 'world');" -U postgres
-
 script:
     - python -m pytest -v
 
