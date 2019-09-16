@@ -7,7 +7,6 @@ def get_db_word():
     try:
         DATABASE_URL = os.environ['DATABASE_URL']
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-        #conn = psycopg2.connect(dbname='helloworlddb8', user='postgres', host='localhost')
     except Exception:
         return 'ERROR (con)'
 

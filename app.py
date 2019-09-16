@@ -1,12 +1,8 @@
 import os
-import signal
 from flask import Flask
 from hw_app import hello_world_print
 
 app = Flask(__name__)
-
-signal.signal(signal.SIGINT, lambda s, f: os._exit(0))
-
 
 @app.route("/")
 def generate_hw_app():
